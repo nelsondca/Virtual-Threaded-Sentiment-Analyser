@@ -1,0 +1,111 @@
+package ie.atu.sw;
+
+import java.util.*;
+
+/**
+ * @author G00412122 Nelson Almeida
+ * 
+ *         /*The sentiment analysis application's entry point is the Runner
+ *         class. It offers a console-based user interface so that the user may
+ *         communicate with the application.
+ * 
+ *         Giving them the choice to select various sentiment analysis options.
+ */
+
+public class Runner {
+
+	/**
+	 * * Primary function that acts as the application's entry point. To allow the
+	 * user to interact with the application, a menu is displayed.
+	 * 
+	 * @param args Command line parameters; this application does not utilise them.
+	 * @throws Exception in the event that something goes wrong with the execution.
+	 */
+
+	public static void main(String[] args) throws Exception {
+		// Setting the console text colour to white
+		System.out.println(ConsoleColour.WHITE);
+		// Printing the application header
+		System.out.println("************************************************************");
+		System.out.println("*     ATU - Dept. of Computer Science & Applied Physics    *");
+		System.out.println("*                                                          *");
+		System.out.println("*             Virtual Threaded Sentiment Analyser          *");
+		System.out.println("*                                                          *");
+		System.out.println("************************************************************");
+		// Printing the menu options
+		System.out.println("(1) Specify a Text File");
+		System.out.println("(2) Specify a URL");
+		System.out.println("(3) Specify an Output File (default: ./out.txt)");
+		System.out.println("(4) Configure Lexicons");
+		System.out.println("(5) Execute, Analyse and Report");
+		System.out.println("(?) Optional Extras...");
+		System.out.println("(?) Quit");
+
+		// Output a menu of options and solicit text from the user
+		System.out.print(ConsoleColour.BLACK_BOLD_BRIGHT);
+		System.out.print("Select Option [1-4]>");
+		System.out.println();
+
+		System.out.print(ConsoleColour.YELLOW); // Change the colour of the console text
+		int size = 100; // The size of the meter. 100 equates to 100%
+		for (int i = 0; i < size; i++) { // The loop equates to a sequence of processing steps
+			printProgress(i + 1, size); // After each (some) steps, update the progress meter
+			Thread.sleep(10); // Slows things down so the animation is visible
+		}
+		//Display the menu to the user and capture their selection
+		 /*Scanner scanner = new Scanner(System.in); int option = scanner.nextInt();
+		 LexiconLoader lexiconLoader = new LexiconLoader(); 
+		 TweetAnalyzer tweetAnalyzer = new TweetAnalyzer(lexiconLoader); 
+		 TweetReader tweetReader = new TweetReader(); 
+		 ReportGenerator reportGenerator = new ReportGenerator();
+		// Handle the user's menu selection
+		 switch (option) { 
+		// Option 1: Load and analyze tweets from a text file
+		 case 1:
+			 System.out.println("C:\Users\Morpheus\Desktop\New folder\lexicons\afinn.txt"); 
+			 String textFilePath = scanner.next(); 
+			 List<String> tweets = tweetReader.readTweetsFromFile(textFilePath); 
+			 List<SentimentResult> results = tweetAnalyzer.analyzeTweets(tweets); 
+			 reportGenerator.generateReport(results);
+		 break;
+		  
+		  }
+		 scanner.close();//closing the scanner
+		 
+	}
+*/
+	/**
+	 * * Displays a progress meter on the console. To show how far along a task is,
+	 * the method refreshes a progress bar on the console. As the process
+	 * progresses, the progress meter gets filled up.
+	 * 
+	 * @param index the process's current stage.
+	 * @param total The process's total number of steps.
+	 */
+	public static void printProgress(int index, int total) {
+		// Verifying whether the current index is inside the range
+		if (index > total)
+			return; // Out of range
+		int size = 50; // Must be less than console width
+
+		// Characters that stand for the finished and unfinished portions of the bar
+		char done = '\u2588';
+		char todo = '\u2591';
+		// Calculating the length of the completed section
+		int complete = (100 * index) / total;
+		int completeLen = size * complete / 100;
+		// Building the progress bar string
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		for (int i = 0; i < size; i++) {
+			sb.append((i < completeLen) ? done : todo);
+		}
+
+		// Printing the progress bar with the current completion percentage
+		System.out.print("\r" + sb + "] " + complete + "%");
+
+		// Moving to a new line once the meter reaches its maximum
+		if (done == total)
+			System.out.println("\n");
+	}
+}

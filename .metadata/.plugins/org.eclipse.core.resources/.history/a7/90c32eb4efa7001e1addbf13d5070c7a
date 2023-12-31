@@ -1,0 +1,58 @@
+package ie.atu.sw;
+
+/*Lexicon Entry
+public class LexiconEntry {
+ private String word;
+ private int score;
+
+ public LexiconEntry(String word, int score) {
+     this.word = word;
+     this.score = score;
+ }
+
+ // Getters and setters
+}
+
+//Lexicon Loader
+public class LexiconLoader {
+ private Map<String, Integer> lexiconMap = new ConcurrentHashMap<>();
+
+ public void loadLexiconFromFile(String filePath) {
+     // Implement file reading and populate lexiconMap
+ }
+}
+
+//Tweet Analyzer
+public class TweetAnalyzer {
+ private LexiconLoader lexiconLoader;
+
+ public TweetAnalyzer(LexiconLoader lexiconLoader) {
+     this.lexiconLoader = lexiconLoader;
+ }
+
+ public int analyzeTweet(String tweet) {
+     // Implement sentiment analysis logic
+     // Return sentiment score
+ }
+}
+
+//Main Application
+public class SentimentAnalysisApp {
+ public static void main(String[] args) {
+     LexiconLoader lexiconLoader = new LexiconLoader();
+     lexiconLoader.loadLexiconFromFile("path/to/lexicon.txt");
+     
+     TweetAnalyzer tweetAnalyzer = new TweetAnalyzer(lexiconLoader);
+     
+     // Sample tweet
+     String tweet = "This is a sample tweet";
+     int sentimentScore = tweetAnalyzer.analyzeTweet(tweet);
+     System.out.println("Sentiment Score: " + sentimentScore);
+     
+     // Add menu and UI logic
+     // Add logic to handle multiple tweets
+     // Add reporting features
+ }
+}
+*/
+
