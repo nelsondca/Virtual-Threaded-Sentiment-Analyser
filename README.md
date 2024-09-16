@@ -1,9 +1,10 @@
-#Virtual Threaded Sentiment Analyser
+#Virtual Threaded Sentiment Analyser Project
+(application Incomplete)
+
 The Runner class serves as the entry point for the sentiment analysis application. It provides a console-based user interface for interacting with the application and selecting various sentiment analysis options.
 
 
 Description
-
 The Runner class displays a menu of options to the user, allowing them to specify input sources, configure lexicons, and execute sentiment analysis. It also includes a progress meter to visualize the progress of tasks.
 
 
